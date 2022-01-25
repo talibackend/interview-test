@@ -64,13 +64,15 @@ server.get('/get/webview/:id', (req, res)=>{
 
 server.listen(port, "0.0.0.0", ()=>{
     fs.readdir('public', (err, files)=>{
-        files.forEach((file)=>{
-            fs.unlink(`public/${file}`, (err)=>{
-                if(err){
-                    console.log(err);
-                }
+        if(files != undefined){
+            files.forEach((file)=>{
+                fs.unlink(`public/${file}`, (err)=>{
+                    if(err){
+                        console.log(err);
+                    }
+                });
             });
-        });
+        }
     })
     console.log("Server have been started, this means that all initially saved routes in the database object will be wiped out.")}
 );
