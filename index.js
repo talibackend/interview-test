@@ -35,6 +35,10 @@ server.post('/create', (req, res)=>{
     }
 });
 
+server.get('/', (req, res)=>{
+    res.send("Deployment successful....");
+})
+
 server.get('/routes', (req, res)=>{
     database_keys = Object.keys(database);
     response_list = [];
